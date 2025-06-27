@@ -1,0 +1,51 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" \ />
+        <title>Müşteri Ve Sipariş Bilgileri</title>
+        <style>
+            table {
+                border - collapse: collapse;
+            width: 70%;
+            background-color: #f8f8f8;
+            }
+            th, td {
+            border: 1px solid #aaa;
+            padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Müşteri Bilgileri</h2>
+    <ul>
+        <li><strong>ID:</strong> @Model.Customer.Id</li>
+        <li><strong>Ad:</strong> @Model.Customer.FirstName</li>
+        <li><strong>Soyad:</strong> @Model.Customer.LastName</li>
+        <li><strong>Email:</strong> @Model.Customer.Email</li>
+    </ul>
+    <h2>Siparişler</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ürün</th>
+                <th>Fiyat</th>
+                <th>Miktar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model.Orders)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.ProductName</td>
+                    <td>@order.Price TL</td>
+                    <td>@order.Quantity</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </body>
+</html>
